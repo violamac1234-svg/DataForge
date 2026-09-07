@@ -1,0 +1,10 @@
+nicegui
+ultralytics
+opencv-python
+Pillow
+numpy
+pandas
+plotly
+PyYAML
+psutil
+pytest

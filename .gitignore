@@ -1,0 +1,51 @@
+# Python caches and tooling
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local Python environments
+.venv/
+venv/
+env/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Runtime logs
+logs/*
+!logs/.gitkeep
+*.log
+
+# User datasets, annotations, training jobs, models, and exports
+storage/projects/*
+!storage/projects/.gitkeep
+
+# Downloaded or locally supplied model weights
+storage/pretrained/*
+!storage/pretrained/.gitkeep
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Generated training output and archives
+runs/
+*.zip
+
+# Temporary files
+tmp/
+temp/
+*.tmp

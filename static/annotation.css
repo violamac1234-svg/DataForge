@@ -1,0 +1,53 @@
+.df-workspace {
+  display: grid;
+  grid-template-columns: 230px minmax(420px, 1fr) 280px;
+  flex: 1 1 0;
+  height: auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #273449;
+  border-radius: 14px;
+  background: #0b1220;
+  color: #e2e8f0;
+}
+.df-queue, .df-inspector { background: #111827; min-height: 0; overflow: auto; }
+.df-queue { border-right: 1px solid #273449; padding: 14px; }
+.df-inspector { border-left: 1px solid #273449; padding: 14px; }
+.df-panel-title { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #5eead4; margin: 4px 0 12px; }
+.df-queue-item { width: 100%; display: flex; gap: 10px; align-items: center; padding: 8px; margin-bottom: 6px; border: 1px solid transparent; border-radius: 9px; background: transparent; color: #cbd5e1; text-align: left; cursor: pointer; }
+.df-queue-item:hover, .df-queue-item.active { background: #1e293b; border-color: #334155; }
+.df-queue-item.active { box-shadow: inset 3px 0 #14b8a6; }
+.df-queue-item img { width: 52px; height: 42px; object-fit: cover; border-radius: 5px; }
+.df-queue-meta { min-width: 0; }
+.df-queue-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px; }
+.df-queue-status { color: #94a3b8; font-size: 11px; margin-top: 2px; }
+.df-center { min-width: 0; display: flex; flex-direction: column; background: #060b14; }
+.df-toolbar { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; padding: 10px 12px; border-bottom: 1px solid #273449; background: #111827; }
+.df-tool { border: 1px solid #334155; background: #172033; color: #cbd5e1; padding: 7px 10px; border-radius: 7px; cursor: pointer; font-size: 12px; }
+.df-tool:hover, .df-tool.active { border-color: #14b8a6; color: #5eead4; background: #12302f; }
+.df-tool.danger:hover { border-color: #ef4444; color: #fca5a5; background: #35141a; }
+.df-stage { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 16px; overflow: hidden; }
+.df-stage > div { width: 100%; display: flex; align-items: center; justify-content: center; }
+.df-canvas-frame { position: relative; max-width: 100%; max-height: 100%; box-shadow: 0 20px 55px rgba(0,0,0,.5); background: #020617; }
+.df-canvas-frame img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; pointer-events: none; }
+.df-canvas-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: default; }
+.df-bbox { vector-effect: non-scaling-stroke; fill: transparent; stroke-width: 2; cursor: pointer; }
+.df-bbox.ai-low { stroke-dasharray: 7 4; animation: df-pulse 1.3s infinite alternate; }
+.df-bbox.selected { stroke-width: 3; filter: drop-shadow(0 0 4px rgba(255,255,255,.5)); }
+.df-handle { fill: #fff; stroke: #0f172a; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.df-label-bg { opacity: .92; }
+.df-label-text { fill: white; font-family: system-ui, sans-serif; pointer-events: none; }
+@keyframes df-pulse { from { opacity: .55; } to { opacity: 1; } }
+.df-statusbar { padding: 8px 12px; border-top: 1px solid #273449; background: #111827; display: flex; justify-content: space-between; font-size: 12px; color: #94a3b8; }
+.df-dirty { color: #fbbf24; font-weight: 700; }
+.df-object { border: 1px solid #334155; border-radius: 9px; padding: 10px; margin-bottom: 8px; cursor: pointer; background: #172033; }
+.df-object:hover, .df-object.selected { border-color: #14b8a6; background: #12302f; }
+.df-object-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.df-color-dot { width: 9px; height: 9px; border-radius: 99px; display: inline-block; margin-right: 6px; }
+.df-object-meta { font-size: 11px; color: #94a3b8; margin-top: 5px; }
+.df-inspector select { width: 100%; background: #0f172a; color: #e2e8f0; border: 1px solid #334155; border-radius: 7px; padding: 8px; margin: 8px 0 14px; }
+.df-help { font-size: 11px; color: #64748b; line-height: 1.7; margin-top: 16px; }
+@media (max-width: 1000px) {
+  .df-workspace { grid-template-columns: 170px minmax(360px, 1fr) 220px; }
+}
