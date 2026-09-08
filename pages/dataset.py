@@ -138,7 +138,12 @@ def _project_dataset(project_id: str) -> None:
             if not selected:
                 ui.notify("请先选择需要预炼的图片。", type="warning")
                 return
-            ui.notify(f"正在预炼 {len(selected)} 张图片，CPU 模式可能需要一些时间…", type="ongoing")
+            progress = ui.notification(
+                f"正在预炼 {len(selected)} 张图片，CPU 模式可能需要一些时间…",
+                type="ongoing",
+                spinner=True,
+                timeout=None,
+            )
             completed = 0
             try:
                 for target_id in list(selected):
@@ -150,6 +155,8 @@ def _project_dataset(project_id: str) -> None:
                 ui.notify(f"已完成 {completed} 张图片的 AI 预炼", type="positive")
             except Exception as exc:
                 _notify_error(f"批量 AI 预炼（已完成 {completed} 张）", exc)
+            finally:
+                progress.dismiss()
 
         with ui.dialog() as delete_dialog, ui.card().classes("p-6"):
             ui.label("确认删除所选图片？").classes("text-lg font-bold")

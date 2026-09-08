@@ -43,9 +43,33 @@ storage/pretrained/*
 
 # Generated training output and archives
 runs/
+output/
 *.zip
+
+# Generated documents and office files
+*.pdf
+*.doc
+*.docx
+*.docm
+*.dot
+*.dotx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+
+# Local images and rendered previews
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.webp
+*.gif
+*.tif
+*.tiff
 
 # Temporary files
 tmp/
 temp/
 *.tmp
+test_localsystem.txt

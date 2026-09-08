@@ -131,18 +131,27 @@ def _annotation_page(project_id: str, image_id: str) -> None:
                 ui.notify(f"确认失败：{exc}", type="negative", close_button=True)
 
         async def ai_prelabel(*_) -> None:
+            progress = None
             try:
                 editor = await read_editor_state()
                 if editor.get("dirty"):
                     ui.notify("请先保存或放弃当前修改，再执行 AI 预炼。", type="warning")
                     return
-                ui.notify("正在使用当前模型进行 CPU 推理…", type="ongoing")
+                progress = ui.notification(
+                    "正在使用当前模型进行 CPU 推理…",
+                    type="ongoing",
+                    spinner=True,
+                    timeout=None,
+                )
                 await run.io_bound(prelabel_image, project_id, image_id)
                 ui.notify("AI 预炼完成", type="positive")
                 ui.navigate.to(f"/annotate/{project_id}/{image_id}")
             except Exception as exc:
                 LOGGER.exception("AI prelabel failed", exc_info=exc)
                 ui.notify(f"AI 预炼失败：{exc}", type="negative", close_button=True)
+            finally:
+                if progress is not None:
+                    progress.dismiss()
 
         async def request_navigation(target_id: str | None) -> None:
             editor = await read_editor_state()
