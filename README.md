@@ -16,6 +16,8 @@ python app.py
 
 如果已经有可用的 Python 环境，也可以直接在该环境中运行以上安装和启动命令。CPU/GPU 版 PyTorch 的安装方式不同；NVIDIA GPU 用户应先按照 PyTorch 官网选择适合本机驱动的 CUDA 安装命令，再安装本项目依赖。
 
+Windows 用户也可以双击 `launch_dataforge.cmd` 启动。首次使用前，请把其中的 `DATAFORGE_PYTHON` 修改为本机 Python 解释器路径；启动器会自动打开浏览器。
+
 默认访问 `http://127.0.0.1:8080`。如果 8080 已被占用，应用会自动选择之后的可用端口，并在终端显示实际地址。也可以通过 `DATAFORGE_PORT` 指定首选端口。
 
 ## 使用顺序
